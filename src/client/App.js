@@ -1,23 +1,34 @@
 import React, { Component } from 'react';
-import './app.css';
-import ReactImage from './react.png';
+import './app.scss';
 
 export default class App extends Component {
-  state = { username: null };
 
   componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
   }
 
   render() {
-    const { username } = this.state;
     return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        <img src={ReactImage} alt="react" />
-      </div>
+        <div>
+          <div className="wrapper" id="wrapper">
+            <nav id="bt-menu" className="bt-menu bt-menu-close">            
+              <div className="bt-menu-trigger">
+                <a className="link link--logo" href="#">JD<span data-letters="JD"></span><span data-letters="JD"></span></a>
+              </div>
+
+              <ul>
+                <li><a href="#" className="bt-icon icon-user-outline">About</a></li>
+                <li><a href="#" className="bt-icon icon-sun">Skills</a></li>
+                <li><a href="#" className="bt-icon icon-windows">Work</a></li>
+                <li><a href="#" className="bt-icon icon-speaker">Blog</a></li>
+                <li><a href="#" className="bt-icon icon-star">Clients</a></li>
+                <li><a href="#" className="bt-icon icon-bubble">Contact</a></li>
+              </ul>
+              <div className="bt-overlay"></div>
+            </nav>
+            <div className="left"></div>
+            <div className="right"></div>
+          </div>
+        </div>
     );
   }
 }
